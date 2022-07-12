@@ -9,8 +9,7 @@ const { chainName: deployedToChainName, chainId: deployedToChainId } =
 
 export const useDisconnectReason = () => {
   const { account, chainId } = useEthers();
-  const [disconnectReason, setDisconnectReason] =
-    React.useState('initializing');
+  const [disconnectReason, setDisconnectReason] = React.useState('');
 
   React.useEffect(() => {
     if (!account) {

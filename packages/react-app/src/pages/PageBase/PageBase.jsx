@@ -11,7 +11,8 @@ import MenuIcon from './Menu.svg';
 const PageBase = ({ children }) => {
   const disconnectReason = useDisconnectReason();
 
-  const [toggleIsMenuOpen] = useToggle(false);
+  // eslint-disable-next-line no-unused-vars
+  const [isMenuOpen, toggleIsMenuOpen] = useToggle(false);
 
   if (disconnectReason) {
     return <ConnectPage disconnectReason={disconnectReason} />;
