@@ -1,0 +1,17 @@
+.card {
+    box-shadow: 4px 4px 33px rgba(0, 0, 0, 0.1), 4px 4px 21px rgba(134, 161, 186, 0.11);
+    margin-bottom: 24px;
+    border-radius: 16px;
+    padding-left: 24px;
+}
+
+.card_processed {
+    box-shadow: 4px 4px 33px rgba(0, 0, 0, 0.1), 4px 4px 21px rgba(134, 161, 186, 0.11);
+    margin-bottom: 24px;
+    border-radius: 16px;
+    padding-left: 24px;
+    background-image: url('../assets/carbon_time.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #F1F1F1;
+}
