@@ -15,6 +15,9 @@ module.exports = {
         lettuce: '#4EE45D',
         raspberry: '#EC2A58',
         blueberry: '#9BB0E9',
+        lilac: '#91A8E5',
+        'lilac-dark': '#5B6C97',
+        'lilac-blond': '#C5D5FF',
         'cornflower-blue': {
           DEFAULT: '#7B61FF',
           50: '#FFFFFF',
