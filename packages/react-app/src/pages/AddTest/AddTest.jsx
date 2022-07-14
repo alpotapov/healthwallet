@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import PageBase from '../PageBase/PageBase';
-import Scanner from './components/Scanner';
+import FileUploadGroup from './components/FileUploadGroup';
+import StringInput from './components/InputGroup';
 
 import AddImage from './assets/AddImage.png';
 import IconWhite from './assets/IconWhite.svg';
 import Plus from './assets/Plus.svg';
 
 const AddTest = () => {
+  const { register, setValue } = useForm();
+
   return (
     <PageBase>
       <div className="relative z-10 flex pt-6 -mb-16">
@@ -17,7 +21,15 @@ const AddTest = () => {
         </div>
       </div>
       <div className="bg-lilac rounded-t-3xl pt-8 px-5">
-        <Scanner />
+        <FileUploadGroup
+          subtext="File type supported.png"
+          onSuccessfulUpload={(value) => setValue('barcodeInfo', value)}
+        />
+        <StringInput
+          placeholder="Barcode Info"
+          register={register('barcodeInfo', { required: true })}
+          disabled
+        />
         <div className="py-14">
           <div className="flex items-center pb-10">
             <div className="w-32 text-center text-lilac-dark text-sm font-medium">

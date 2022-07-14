@@ -74,11 +74,7 @@ const CardTest = ({ testData }) => {
 };
 
 CardTest.propTypes = {
-  testData: PropTypes.arrayOf(PropTypes.shape()),
-};
-
-CardTest.defaultProps = {
-  testData: undefined,
+  testData: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default CardTest;

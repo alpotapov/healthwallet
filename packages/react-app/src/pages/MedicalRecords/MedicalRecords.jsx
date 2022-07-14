@@ -40,10 +40,10 @@ const MedicalRecords = () => {
     },
   ];
 
-  // const forTestData = undefined;
+  // const forTestData = [];
   return (
     <PageBase>
-      {forTestData === undefined ? (
+      {forTestData.length <= 0 ? (
         <div className="w-full px-6">
           <img
             src={MedicalRecImage}
