@@ -41,13 +41,11 @@ const Guardians = () => {
         <div className="ml-5 mr-auto">Best Friend</div>
         <div className="font-bold text-lettuce text-5xl">+</div>
       </div>
-      <button
-        type="button"
-        onClick={() => {}}
-        className="w-full bg-lettuce uppercase text-white font-bold text-center p-2 mt-8"
-      >
-        Add Guardians
-      </button>
+      <div className="flex items-center justify-center w-full border border-white bg-lilac-blond h-14 px-5 rounded-3xl mt-6">
+        <Link to="/guardians/add-guardians" className="flex">
+          <div className="text-sm text-lilac-dark font-bold">Add Guardians</div>
+        </Link>
+      </div>
     </PageBase>
   );
 };

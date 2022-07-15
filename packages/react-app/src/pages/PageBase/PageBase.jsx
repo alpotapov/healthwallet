@@ -28,6 +28,8 @@ const PageBase = ({ children }) => {
             <button type="button" onClick={toggleIsMenuOpen}>
               <img src={MenuIcon} alt="Menu" />
             </button>
+            <Link to="/">Main</Link>
+            <Link to="/preservation">preservation</Link>
             <Link to="/guardians">
               <img src={Guardians} alt="Guardians" />
             </Link>
