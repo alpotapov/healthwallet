@@ -1,14 +1,45 @@
 import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
+import javascriptBarcodeReader from 'javascript-barcode-reader';
 
-const FileUploadGroup = ({ subtext }) => {
+const FileUploadGroup = ({ subtext, onSuccessfulUpload }) => {
   const [selectedImage, setSelectedImage] = useState();
-  console.log(selectedImage);
+
+  // const getDataBarcode = () => {
+  //   const barcode = new Image();
+  //   barcode.crossOrigin = 'Anonymous';
+  //   barcode.src = !selectedImage ? '' : selectedImage.path;
+  //   barcode.onload = javascriptBarcodeReader({
+  //     image: barcode,
+  //     options: 'code-93',
+  //   })
+  //     .then((result) => {
+  //       onSuccessfulUpload(result);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  //   console.log(barcode);
+  // };
+
+  const getDataBarcode = () => {
+    javascriptBarcodeReader({
+      image: !selectedImage ? '' : selectedImage.path,
+      barcode: 'code-128',
+    })
+      .then((result) => {
+        console.log(result);
+        onSuccessfulUpload(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const onFileUpload = () => {
     if (!selectedImage) return;
-    alert('kra');
+    getDataBarcode();
   };
 
   const onDrop = useCallback((acceptedFiles) => {
