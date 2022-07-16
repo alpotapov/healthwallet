@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import ConnectPage from '../ConnectPage/ConnectPage';
 
 import { useDisconnectReason } from '../../components/ConnectionError';
-import useToggle from '../../hooks/useToggle';
+import Menu from './components/Menu';
 
 import MenuIcon from './assets/Menu.svg';
 import Logo from './assets/Logo.png';
@@ -14,8 +14,7 @@ import Back from './assets/buttonBack.svg';
 const PageBase = ({ children, buttonBack, backLink, footer }) => {
   const disconnectReason = useDisconnectReason();
 
-  // eslint-disable-next-line no-unused-vars
-  const [isMenuOpen, toggleIsMenuOpen] = useToggle(false);
+  const [menuModalOpen, setMenuModalOpen] = React.useState(false);
 
   if (disconnectReason) {
     return <ConnectPage disconnectReason={disconnectReason} />;
@@ -25,6 +24,12 @@ const PageBase = ({ children, buttonBack, backLink, footer }) => {
     <div className="flex min-h-screen flex-col">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row md:justify-between items-center mt-6">
+          <Menu
+            onClose={() => {
+              setMenuModalOpen(false);
+            }}
+            isOpen={menuModalOpen}
+          />
           {buttonBack ? (
             <div className="w-full flex justify-between px-6">
               <div>
@@ -32,13 +37,23 @@ const PageBase = ({ children, buttonBack, backLink, footer }) => {
                   <img src={Back} alt="buttonBack" />
                 </Link>
               </div>
-              <button type="button" onClick={toggleIsMenuOpen}>
+              <button
+                type="button"
+                onClick={() => {
+                  setMenuModalOpen(true);
+                }}
+              >
                 <img src={MenuIcon} alt="Menu" />
               </button>
             </div>
           ) : (
             <div className="w-full flex justify-end px-6">
-              <button type="button" onClick={toggleIsMenuOpen}>
+              <button
+                type="button"
+                onClick={() => {
+                  setMenuModalOpen(true);
+                }}
+              >
                 <img src={MenuIcon} alt="Menu" />
               </button>
             </div>

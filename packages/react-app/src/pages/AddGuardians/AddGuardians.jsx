@@ -1,38 +1,46 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PageBase from '../PageBase/PageBase';
+
+import Shield from './assets/Shield.png';
+import Plus from './assets/Plus.svg';
+import css from './components/style.module.css';
 
 const AddGuardians = () => {
   return (
-    <PageBase>
-      <div className="px-4">
-        <div className="flex items-center py-10">
-          <Link
-            to="/guardians"
-            className="p-2 bg-lettuce uppercase text-white font-bold text-center"
-          >
-            Back
-          </Link>
-          <div className="pl-20">Add Guardians</div>
+    <PageBase buttonBack backLink="/guardians">
+      <div className="relative z-10 flex items-center mt-5 -mb-10">
+        <img src={Shield} alt="Shield" />
+        <div className="flex flex-col text-3xl font-bold mb-10">
+          <span className="text-dark-gray">Add</span>Guardians
         </div>
-        <div className="flex flex-col items-center justify-center mb-10">
-          <div>Guardian Name</div>
-          <input className="border p-2 mt-4" placeholder="Name New Guardian" />
-        </div>
-        <div className="flex flex-col items-center justify-center">
-          <div>Guardian Address</div>
-          <input
-            className="border p-2 mt-4"
-            placeholder="Address New Guardian"
-          />
-        </div>
-        <button
-          type="button"
-          onClick={() => {}}
-          className="w-full bg-lettuce uppercase text-white font-bold text-center p-2 mt-8"
+      </div>
+      <div className="bg-gray rounded-t-3xl pt-20 pb-40 px-6">
+        <div
+          className={`${css.form_shadow} rounded-3xl bg-white pt-10 pb-6 px-5`}
         >
-          Add Guardians
-        </button>
+          <div>
+            <input
+              className="w-full border border-dark-gray rounded-2xl h-14 mb-8 px-3.5"
+              placeholder="Guardian name"
+            />
+          </div>
+          <div>
+            <input
+              className="w-full border border-dark-gray rounded-2xl h-14 mb-8 px-3.5"
+              placeholder="Guardian address"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={() => {}}
+            className="flex items-center w-full bg-lilac rounded-2xl h-14 pl-5"
+          >
+            <img src={Plus} alt="plus" />
+            <div className="ml-14 text-sm font-bold text-white">
+              Add Guardian
+            </div>
+          </button>
+        </div>
       </div>
     </PageBase>
   );

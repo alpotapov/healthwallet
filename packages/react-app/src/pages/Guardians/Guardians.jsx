@@ -1,51 +1,92 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PageBase from '../PageBase/PageBase';
+import GuardiansCard from './components/GuardiansCard';
+
+import Shield from './assets/Shield.png';
+import Plus from './assets/Plus.svg';
 
 const Guardians = () => {
+  const forTestData = [
+    {
+      name: 'Mather',
+      address: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    },
+    {
+      name: 'Father',
+      address: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    },
+    {
+      name: 'Sister',
+      address: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    },
+    {
+      name: 'Brother',
+      address: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    },
+  ];
+
+  // const forTestData = [];
   return (
-    <PageBase>
-      <div className="flex justify-between items-center pb-6">
-        <Link
-          to="/"
-          className="p-2 bg-lettuce uppercase text-white font-bold text-center"
-        >
-          Back
-        </Link>
-        <div className="p-2">Guardians</div>
-      </div>
-      <div className="px-2 pb-8 text-center">
-        Here you can appoint your HealthWallet guardians. Those should be the
-        people you trust - your family members or close friends. If you lose
-        your device or your private key - guardians will be able to restore
-        access to your medical history.
-      </div>
-      <div className="flex items-center pb-3">
-        <div className="flex justify-center items-center rounded-full bg-gray w-12 h-12">
-          <div className="font-bold">M</div>
+    <PageBase buttonBack backLink="/">
+      {forTestData <= 0 ? (
+        <div>
+          <div className="w-full px-6">
+            <div className="flex justify-between items-start pb-8 mt-5">
+              <img src={Shield} alt="Shield" className="-ml-6" />
+              <div>
+                <div className="text-3xl font-bold text-lilac pb-8">
+                  Guardians
+                </div>
+                <div className="text-sm font-medium">
+                  Here you can appoint your HealthWallet guardians. Those should
+                  be the people you trust - your family members or close
+                  friends. If you lose your device or your private key -
+                  guardians will be able to restore access to your medical
+                  history.
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center w-full bg-blueberry h-14 px-5 rounded-3xl mt-6 mb-5">
+              <Link to="/guardians/add-guardians" className="flex">
+                <img src={Plus} alt="Plus" />
+                <div className="text-sm text-white font-bold ml-24">
+                  Add Guardian
+                </div>
+              </Link>
+            </div>
+          </div>
+          <div className="bg-gray rounded-t-3xl py-48 px-40 text-sm font-medium text-silver-dark">
+            Empty
+          </div>
         </div>
-        <div className="ml-5 mr-auto">Mother</div>
-        <div className="font-bold text-lettuce text-5xl">+</div>
-      </div>
-      <div className="flex items-center pb-3">
-        <div className="flex justify-center items-center rounded-full bg-gray w-12 h-12">
-          <div className="font-bold">F</div>
+      ) : (
+        <div>
+          <div className="w-full px-6">
+            <div className="flex justify-between items-start pb-8 mt-5">
+              <img src={Shield} alt="Shield" className="-ml-6" />
+              <div>
+                <div className="text-3xl font-bold text-lilac pb-8">
+                  Guardians
+                </div>
+                <div className="text-sm font-medium">
+                  If you lose your device or your private key - guardians will
+                  be able to restore access to your medical history.
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center w-full bg-blueberry h-14 px-5 rounded-3xl mt-6 mb-5">
+              <Link to="/guardians/add-guardians" className="flex">
+                <img src={Plus} alt="Plus" />
+                <div className="text-sm text-white font-bold ml-24">
+                  Add Guardian
+                </div>
+              </Link>
+            </div>
+          </div>
+          <GuardiansCard guardiansData={forTestData} />
         </div>
-        <div className="ml-5 mr-auto">Father</div>
-        <div className="font-bold text-lettuce text-5xl">+</div>
-      </div>
-      <div className="flex items-center pb-3">
-        <div className="flex justify-center items-center rounded-full bg-gray w-12 h-12">
-          <div className="font-bold">B</div>
-        </div>
-        <div className="ml-5 mr-auto">Best Friend</div>
-        <div className="font-bold text-lettuce text-5xl">+</div>
-      </div>
-      <div className="flex items-center justify-center w-full border border-white bg-lilac-blond h-14 px-5 rounded-3xl mt-6">
-        <Link to="/guardians/add-guardians" className="flex">
-          <div className="text-sm text-lilac-dark font-bold">Add Guardians</div>
-        </Link>
-      </div>
+      )}
     </PageBase>
   );
 };
