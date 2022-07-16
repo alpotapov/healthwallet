@@ -42,7 +42,7 @@ const MedicalRecords = () => {
 
   // const forTestData = [];
   return (
-    <PageBase>
+    <PageBase footer>
       {forTestData.length <= 0 ? (
         <div className="w-full px-6">
           <img

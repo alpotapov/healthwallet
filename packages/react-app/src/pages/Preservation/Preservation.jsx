@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import PageBase from '../PageBase/PageBase';
 
 const Preservation = () => {
-  // const forTestKey = [
-  //   { key: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', guardians: 0 },
-  // ];
-  const forTestKey = [];
+  const forTestKey = [
+    { key: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', guardians: 0 },
+  ];
+  // const forTestKey = [];
 
   return (
     <PageBase>

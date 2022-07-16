@@ -1,19 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
 import PageBase from '../PageBase/PageBase';
-import FileUploadGroup from './components/FileUploadGroup';
-import StringInput from './components/InputGroup';
 
 import AddImage from './assets/AddImage.png';
 import IconWhite from './assets/IconWhite.svg';
 import Plus from './assets/Plus.svg';
+import Barcode from './assets/Barcode.png';
 
 const AddTest = () => {
-  const { register, setValue } = useForm();
-
   return (
-    <PageBase>
+    <PageBase buttonBack backLink="/">
       <div className="relative z-10 flex pt-6 -mb-16">
         <img className="w-52" src={AddImage} alt="addImage" />
         <div className="font-bold text-3xl w-28 mt-8">
@@ -21,15 +17,11 @@ const AddTest = () => {
         </div>
       </div>
       <div className="bg-lilac rounded-t-3xl pt-8 px-5">
-        <FileUploadGroup
-          subtext="File type supported.png"
-          onSuccessfulUpload={(value) => setValue('barcodeInfo', value)}
-        />
-        <StringInput
-          placeholder="Barcode Info"
-          register={register('barcodeInfo', { required: true })}
-          disabled
-        />
+        <div className="h-56 w-full flex justify-center items-center bg-white rounded-3xl cursor-pointer">
+          <Link to="/add-test/scan">
+            <img src={Barcode} alt="Barcode" />
+          </Link>
+        </div>
         <div className="py-14">
           <div className="flex items-center pb-10">
             <div className="w-32 text-center text-lilac-dark text-sm font-medium">

@@ -7,6 +7,7 @@ import Guardians from './pages/Guardians/Guardians';
 import Preservation from './pages/Preservation/Preservation';
 import RestoreAccess from './pages/RestoreAccess/RestoreAccess';
 import AddGuardians from './pages/AddGuardians/AddGuardians';
+import AddTestScan from './pages/AddTestScan/AddTestScan';
 
 import './index.css';
 
@@ -14,6 +15,9 @@ export default function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/add-test/scan">
+          <AddTestScan />
+        </Route>
         <Route path="/add-test">
           <AddTest />
         </Route>
