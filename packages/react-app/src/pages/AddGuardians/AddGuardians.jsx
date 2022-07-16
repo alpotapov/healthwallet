@@ -20,13 +20,13 @@ const AddGuardians = () => {
         >
           <div>
             <input
-              className="w-full border border-dark-gray rounded-2xl h-14 mb-8 px-3.5"
+              className="w-full border border-dark-gray rounded-2xl h-14 mb-8 px-3.5 text-lilac text-sm"
               placeholder="Guardian name"
             />
           </div>
           <div>
             <input
-              className="w-full border border-dark-gray rounded-2xl h-14 mb-8 px-3.5"
+              className="w-full border border-dark-gray rounded-2xl h-14 mb-8 px-3.5 text-lilac text-sm"
               placeholder="Guardian address"
             />
           </div>

@@ -40,7 +40,7 @@ const AddTest = () => {
             </div>
             <div className="text-xl font-medium text-white">29.10.2022</div>
           </div>
-          <div className="flex items-center pb-10">
+          <div className="flex items-center">
             <div className="w-32 text-center text-lilac-dark text-sm font-medium">
               Test UID:
             </div>
@@ -58,13 +58,6 @@ const AddTest = () => {
               Add to HealthWallet
             </div>
           </button>
-          <div className="flex items-center justify-center w-full border border-white bg-lilac-blond h-14 px-5 rounded-3xl mt-6">
-            <Link to="/" className="flex">
-              <div className="text-sm text-lilac-dark font-bold">
-                Back to Medical Records
-              </div>
-            </Link>
-          </div>
         </div>
       </div>
     </PageBase>
