@@ -28,7 +28,6 @@ const BarcodeScanner = ({ onScanCompleted }) => {
 
   return (
     <div className="flex flex-col justify-center w-full">
-      <div id="reader" width="0" height="0" />
       <div>
         <div>
           {!selectedImage ? (
@@ -44,10 +43,9 @@ const BarcodeScanner = ({ onScanCompleted }) => {
                 {isDragReject ? (
                   <p>Sorry, this dApp only supports .png files</p>
                 ) : (
-                  <div>
-                    <p className="text-2xl uppercase font-bold text-lilac text-center">
-                      upload barcode from files
-                    </p>
+                  <div className="text-2xl uppercase font-bold text-lilac text-center mt-12">
+                    upload barcode photo from files or use camera to scan the
+                    barcode
                   </div>
                 )}
               </div>

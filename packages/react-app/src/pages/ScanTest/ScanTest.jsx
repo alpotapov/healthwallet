@@ -4,7 +4,6 @@ import PageBase from '../PageBase/PageBase';
 import BarcodeScanner from './components/BarcodeScanner';
 
 import AddImage from './assets/AddImage.png';
-import ScanIcon from './assets/ScanIcon.svg';
 
 const ScanTest = () => {
   const [scannedUid, setScannedUid] = React.useState(undefined);
@@ -21,16 +20,6 @@ const ScanTest = () => {
       </div>
       <div className="px-5">
         <BarcodeScanner onScanCompleted={(result) => setScannedUid(result)} />
-        {scannedUid !== '' ? (
-          <button
-            type="button"
-            onClick={() => {}}
-            className="flex items-center w-full bg-lettuce rounded-3xl h-14 pl-5"
-          >
-            <img src={ScanIcon} alt="ScanIcon" />
-            <div className="ml-32 text-sm font-bold text-white">Scan</div>
-          </button>
-        ) : null}
       </div>
     </PageBase>
   );
