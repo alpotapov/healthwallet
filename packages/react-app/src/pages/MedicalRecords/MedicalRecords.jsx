@@ -75,7 +75,7 @@ const MedicalRecords = () => {
           <AddTestButtonLink />
         </div>
       ) : (
-        <div className="flex flex-col justify-start">
+        <div className="flex flex-col justify-start flex-grow">
           <div className="w-full px-6 py-6">
             <div className="flex justify-between items-center mt-5">
               <img

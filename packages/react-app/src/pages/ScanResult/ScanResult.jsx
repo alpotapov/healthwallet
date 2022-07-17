@@ -4,7 +4,6 @@ import PageBase from '../PageBase/PageBase';
 import AddImage from './assets/AddImage.png';
 import IconWhite from './assets/IconWhite.svg';
 import Plus from './assets/Plus.svg';
-import Barcode from './assets/Barcode.png';
 
 const ScanResult = () => {
   return (
@@ -15,10 +14,7 @@ const ScanResult = () => {
           <span className="text-lilac">Add</span> Test
         </div>
       </div>
-      <div className="bg-lilac rounded-t-3xl pt-8 px-5">
-        <div className="h-56 w-full flex justify-center items-center bg-white rounded-3xl cursor-pointer">
-          <img src={Barcode} alt="Barcode" />
-        </div>
+      <div className="bg-lilac rounded-t-3xl pt-8 px-5 flex-grow flex flex-col justify-between">
         <div className="py-14">
           <div className="flex items-center pb-10">
             <div className="w-32 text-center text-lilac-dark text-sm font-medium">
