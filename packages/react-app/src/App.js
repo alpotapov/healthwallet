@@ -15,7 +15,7 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/scan-test/result">
+        <Route path="/scan-test/result/:uid">
           <ScanResult />
         </Route>
         <Route path="/scan-test">

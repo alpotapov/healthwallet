@@ -1,11 +1,20 @@
 import React from 'react';
+import { useHistory, useParams } from 'react-router';
 import PageBase from '../PageBase/PageBase';
+
+import testUidRepository from '../../repository/testUidRepository';
 
 import AddImage from './assets/AddImage.png';
 import IconWhite from './assets/IconWhite.svg';
 import Plus from './assets/Plus.svg';
 
 const ScanResult = () => {
+  const { uid } = useParams();
+  const history = useHistory();
+  const saveToLocalStorage = () => {
+    testUidRepository.saveTestUid(uid);
+    history.push('/');
+  };
   return (
     <PageBase buttonBack backLink="/scan-test">
       <div className="relative z-10 flex pt-6 -mb-16">
@@ -43,7 +52,7 @@ const ScanResult = () => {
         <div className="pb-12">
           <button
             type="button"
-            onClick={() => {}}
+            onClick={saveToLocalStorage}
             className="flex items-center w-full border border-white bg-lilac-blond rounded-3xl h-14 pl-5"
           >
             <img src={Plus} alt="plus" />

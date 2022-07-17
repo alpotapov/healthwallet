@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import PageBase from '../PageBase/PageBase';
 import CardTest from './components/CardTest';
 
+import testUidRepository from '../../repository/testUidRepository';
+
 import MedicalRecImage from './assets/MedicalRecord.png';
 import Plus from './assets/Plus.svg';
-// eslint-disable-next-line no-unused-vars
 import IconRed from './assets/IconRed.svg';
-// eslint-disable-next-line no-unused-vars
 import IconGray from './assets/IconGray.svg';
 
 const MedicalRecords = () => {
@@ -45,6 +45,11 @@ const MedicalRecords = () => {
       uid: 'PYF-135-abc',
     },
   ];
+
+  React.useEffect(() => {
+    const testUids = testUidRepository.getTestUids();
+    console.log({ testUids });
+  }, []);
 
   // const forTestData = [];
   const AddTestButtonLink = () => (
