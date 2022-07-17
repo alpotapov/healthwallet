@@ -2,12 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import MedicalRecords from './pages/MedicalRecords/MedicalRecords';
-import AddTest from './pages/AddTest/AddTest';
+import ScanResult from './pages/ScanResult/ScanResult';
 import Guardians from './pages/Guardians/Guardians';
 import Preservation from './pages/Preservation/Preservation';
 import RestoreAccess from './pages/RestoreAccess/RestoreAccess';
 import AddGuardians from './pages/AddGuardians/AddGuardians';
-import AddTestScan from './pages/AddTestScan/AddTestScan';
+import ScanTest from './pages/ScanTest/ScanTest';
 
 import './index.css';
 
@@ -15,11 +15,11 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/add-test/scan">
-          <AddTestScan />
+        <Route path="/scan-test/result">
+          <ScanResult />
         </Route>
-        <Route path="/add-test">
-          <AddTest />
+        <Route path="/scan-test">
+          <ScanTest />
         </Route>
         <Route path="/guardians/add-guardians">
           <AddGuardians />

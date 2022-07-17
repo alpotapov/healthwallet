@@ -1,10 +1,16 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import PageBase from '../PageBase/PageBase';
+import BarcodeScanner from './components/BarcodeScanner';
 
 import AddImage from './assets/AddImage.png';
 import ScanIcon from './assets/ScanIcon.svg';
 
-const AddTestScan = () => {
+const ScanTest = () => {
+  const [scannedUid, setScannedUid] = React.useState(undefined);
+
+  if (scannedUid && scannedUid !== '')
+    return <Redirect to={`/scan-test/result/${scannedUid}`} />;
   return (
     <PageBase buttonBack backLink="/add-test">
       <div className="relative z-10 flex pt-6 -mb-16">
@@ -14,8 +20,8 @@ const AddTestScan = () => {
         </div>
       </div>
       <div className="px-5">
-        <div className="w-full h-80 bg-black rounded-3xl opacity-30 mb-24" />
-        <div className="pb-20">
+        <BarcodeScanner onScanCompleted={(result) => setScannedUid(result)} />
+        {scannedUid !== '' ? (
           <button
             type="button"
             onClick={() => {}}
@@ -24,10 +30,10 @@ const AddTestScan = () => {
             <img src={ScanIcon} alt="ScanIcon" />
             <div className="ml-32 text-sm font-bold text-white">Scan</div>
           </button>
-        </div>
+        ) : null}
       </div>
     </PageBase>
   );
 };
 
-export default AddTestScan;
+export default ScanTest;

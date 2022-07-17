@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PageBase from '../PageBase/PageBase';
 
 import AddImage from './assets/AddImage.png';
@@ -7,9 +6,9 @@ import IconWhite from './assets/IconWhite.svg';
 import Plus from './assets/Plus.svg';
 import Barcode from './assets/Barcode.png';
 
-const AddTest = () => {
+const ScanResult = () => {
   return (
-    <PageBase buttonBack backLink="/">
+    <PageBase buttonBack backLink="/scan-test">
       <div className="relative z-10 flex pt-6 -mb-16">
         <img className="w-52" src={AddImage} alt="addImage" />
         <div className="font-bold text-3xl w-28 mt-8">
@@ -18,9 +17,7 @@ const AddTest = () => {
       </div>
       <div className="bg-lilac rounded-t-3xl pt-8 px-5">
         <div className="h-56 w-full flex justify-center items-center bg-white rounded-3xl cursor-pointer">
-          <Link to="/add-test/scan">
-            <img src={Barcode} alt="Barcode" />
-          </Link>
+          <img src={Barcode} alt="Barcode" />
         </div>
         <div className="py-14">
           <div className="flex items-center pb-10">
@@ -64,4 +61,4 @@ const AddTest = () => {
   );
 };
 
-export default AddTest;
+export default ScanResult;

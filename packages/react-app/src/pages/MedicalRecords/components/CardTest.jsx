@@ -12,7 +12,7 @@ const CardTest = ({ testData }) => {
     <div className="bg-gray px-6 py-11 rounded-t-3xl">
       {testData.map((paramTest) => {
         return paramTest.status === 'Processed' ? (
-          <div className={css.card_processed} key={paramTest.date}>
+          <div key={paramTest.uid} className={css.card_processed}>
             <div className="flex">
               <div className="flex flex-col items-center justify-center pr-5 pt-5 pb-3.5 border-r border-silver">
                 <img src={paramTest.icon} alt="paramTest.typeTest" />
@@ -31,7 +31,7 @@ const CardTest = ({ testData }) => {
             </div>
           </div>
         ) : (
-          <div className={css.card} key={paramTest.date}>
+          <div className={css.card} key={paramTest.uid}>
             <div className="flex">
               <div className="flex flex-col items-center justify-center pr-5 pt-5 pb-3.5 border-r border-silver">
                 <img src={paramTest.icon} alt="paramTest.typeTest" />
