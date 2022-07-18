@@ -71,7 +71,7 @@ describe("ResultRegistry", function () {
             testUid: "cvbn",
           },
         ];
-        Promise.all(
+        await Promise.all(
           testResults.map((res) =>
             resultRegistry.publishMeasurementCid(res.testUid, res.cid)
           )

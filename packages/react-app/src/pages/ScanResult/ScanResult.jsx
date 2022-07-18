@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory, useParams } from 'react-router';
 import PageBase from '../PageBase/PageBase';
 
-import testUidRepository from '../../repository/testUidRepository';
+import medicalRecordRepository from '../../repository/medicalRecordRepository';
 
 import AddImage from './assets/AddImage.png';
 import IconWhite from './assets/IconWhite.svg';
@@ -11,8 +11,9 @@ import Plus from './assets/Plus.svg';
 const ScanResult = () => {
   const { uid } = useParams();
   const history = useHistory();
-  const saveToLocalStorage = () => {
-    testUidRepository.saveTestUid(uid);
+  const pushUid = medicalRecordRepository.useStore((state) => state.pushUid);
+  const onAdd = () => {
+    pushUid(uid);
     history.push('/');
   };
   return (
@@ -52,7 +53,7 @@ const ScanResult = () => {
         <div className="pb-12">
           <button
             type="button"
-            onClick={saveToLocalStorage}
+            onClick={onAdd}
             className="flex items-center w-full border border-white bg-lilac-blond rounded-3xl h-14 pl-5"
           >
             <img src={Plus} alt="plus" />

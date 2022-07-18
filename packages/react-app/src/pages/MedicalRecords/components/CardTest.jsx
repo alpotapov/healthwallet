@@ -4,6 +4,8 @@ import css from './styles.module.css';
 
 import Normal from '../assets/Normal.svg';
 import Critical from '../assets/Critical.svg';
+import IconGray from '../assets/IconGray.svg';
+import IconRed from '../assets/IconRed.svg';
 
 const CardTest = ({ testData }) => {
   if (!testData) return null;
@@ -11,11 +13,11 @@ const CardTest = ({ testData }) => {
   return (
     <div className="bg-gray px-6 py-6 flex-grow">
       {testData.map((paramTest) => {
-        return paramTest.status === 'Processed' ? (
+        return paramTest.status === 'Pending' ? (
           <div key={paramTest.uid} className={css.card_processed}>
             <div className="flex">
               <div className="flex flex-col items-center justify-center pr-5 pt-5 pb-3.5 border-r border-silver">
-                <img src={paramTest.icon} alt="paramTest.typeTest" />
+                <img src={IconGray} alt="paramTest.icon" />
                 <div className="text-dark-gray font-bold text-xl pt-3.5">
                   {paramTest.typeTest}
                 </div>
@@ -34,7 +36,7 @@ const CardTest = ({ testData }) => {
           <div className={css.card} key={paramTest.uid}>
             <div className="flex">
               <div className="flex flex-col items-center justify-center pr-5 pt-5 pb-3.5 border-r border-silver">
-                <img src={paramTest.icon} alt="paramTest.typeTest" />
+                <img src={IconRed} alt="paramTest.icon" />
                 <div className="text-raspberry font-bold text-xl pt-3.5">
                   {paramTest.typeTest}
                 </div>

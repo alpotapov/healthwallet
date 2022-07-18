@@ -14,26 +14,20 @@ const defaultNetworkName = 'localhost';
 const { contracts } = artifacts[defaultNetworkId][defaultNetworkName];
 
 const erc20Interface = new ethers.utils.Interface(ERC20ABI);
-const factoryInterface = new ethers.utils.Interface(contracts.Factory.abi);
+const resultRegistryInterface = new ethers.utils.Interface(
+  contracts.ResultRegistry.abi
+);
 
-export const abis = {
-  erc20: {
-    interface: erc20Interface,
-  },
-  factory: {
-    interface: factoryInterface,
-  },
+export const interfaces = {
+  erc20: erc20Interface,
+  resultRegistry: resultRegistryInterface,
 };
 
-export const getContracts = () => {
-  const chainId = process.env.REACT_APP_NETWORK_ID;
-  const chainName = chainNames[chainId];
+const chainId = process.env.REACT_APP_NETWORK_ID;
+const chainName = chainNames[chainId];
 
-  const factory = artifacts[chainId][chainName].contracts.Factory;
+const resultRegistry = artifacts[chainId][chainName].contracts.ResultRegistry;
 
-  return {
-    factory: {
-      address: factory.address,
-    },
-  };
+export const addresses = {
+  resultRegistry: resultRegistry.address,
 };

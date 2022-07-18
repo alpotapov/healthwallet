@@ -1,55 +1,32 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import { useEthers } from '@usedapp/core';
 import PageBase from '../PageBase/PageBase';
+// eslint-disable-next-line no-unused-vars
 import CardTest from './components/CardTest';
 
-import testUidRepository from '../../repository/testUidRepository';
+import resultRegistryQueries from '../../domain/resultRegistryQueries';
+import medicalRecordRepository from '../../repository/medicalRecordRepository';
 
 import MedicalRecImage from './assets/MedicalRecord.png';
 import Plus from './assets/Plus.svg';
-import IconRed from './assets/IconRed.svg';
-import IconGray from './assets/IconGray.svg';
 
 const MedicalRecords = () => {
-  const forTestData = [
-    {
-      icon: IconGray,
-      date: '29.10.2022',
-      typeTest: 'Ferritin',
-      status: 'Processed',
-      uid: 'ABC-123-abc',
-    },
-    {
-      icon: IconRed,
-      date: '20.10.2022',
-      typeTest: 'Ferritin',
-      status: 'Finished',
-      testResult: 120,
-      uid: 'HGV-456-abc',
-    },
-    {
-      icon: IconRed,
-      date: '01.08.2022',
-      typeTest: 'Ferritin',
-      status: 'Finished',
-      testResult: 99,
-      uid: 'FGD-643-abc',
-    },
-    {
-      icon: IconRed,
-      date: '01.01.2022',
-      typeTest: 'Ferritin',
-      status: 'Finished',
-      testResult: 99,
-      uid: 'PYF-135-abc',
-    },
-  ];
+  const { library } = useEthers();
+  const uids = medicalRecordRepository.useStore((state) => state.uids);
+  const medicalRecords = medicalRecordRepository.useStore(
+    (state) => state.medicalRecords
+  );
+  const medicalRecordsList = uids
+    .filter((uid) => uid in medicalRecords)
+    .map((uid) => medicalRecords[uid])
+    .reverse();
 
   React.useEffect(() => {
-    const testUids = testUidRepository.getTestUids();
-    console.log({ testUids });
-  }, []);
+    if (!library) return;
+    resultRegistryQueries.checkPendingResults(library);
+  }, [library]);
 
   // const forTestData = [];
   const AddTestButtonLink = () => (
@@ -65,7 +42,7 @@ const MedicalRecords = () => {
   );
   return (
     <PageBase footer>
-      {forTestData.length === 0 ? (
+      {medicalRecordsList.length === 0 ? (
         <div className="w-full px-6">
           <img
             src={MedicalRecImage}
@@ -96,7 +73,7 @@ const MedicalRecords = () => {
             </div>
             <AddTestButtonLink />
           </div>
-          <CardTest testData={forTestData} />
+          <CardTest testData={medicalRecordsList} />
         </div>
       )}
     </PageBase>
