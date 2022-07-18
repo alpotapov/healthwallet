@@ -9,18 +9,22 @@ import Plus from './assets/Plus.svg';
 const Guardians = () => {
   const forTestData = [
     {
+      id: 0,
       name: 'Mather',
       address: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
     },
     {
+      id: 1,
       name: 'Father',
       address: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
     },
     {
+      id: 2,
       name: 'Sister',
       address: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
     },
     {
+      id: 3,
       name: 'Brother',
       address: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
     },

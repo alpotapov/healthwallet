@@ -32,7 +32,7 @@ const MedicalRecords = () => {
   const AddTestButtonLink = () => (
     <Link
       to="/scan-test"
-      className="flex items-center w-full bg-blueberry h-14 px-5 rounded-3xl"
+      className="flex items-center w-full bg-blueberry h-14 px-5 rounded-3xl mt-8 mb-5"
     >
       <div className="flex grow">
         <img src={Plus} alt="Plus" />
