@@ -12,7 +12,7 @@ const GuardiansCard = ({ guardiansData }) => {
     <div className="bg-gray px-6 py-11 rounded-t-3xl">
       {guardiansData.map((paramGuardian) => {
         return (
-          <div className={css.card}>
+          <div className={css.card} key={paramGuardian.id}>
             <div className="flex justify-end pb-1">
               <button type="button" onClick={() => {}}>
                 <img src={Remove} alt="Remove" />

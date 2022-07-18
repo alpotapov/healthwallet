@@ -9,7 +9,7 @@ const CardTest = ({ testData }) => {
   if (!testData) return null;
 
   return (
-    <div className="bg-gray px-6 py-6 flex-grow">
+    <div className="bg-gray px-6 py-6 rounded-t-3xl flex-grow">
       {testData.map((paramTest) => {
         return paramTest.status === 'Processed' ? (
           <div key={paramTest.uid} className={css.card_processed}>
