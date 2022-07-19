@@ -1,0 +1,24 @@
+{
+  "name": "doctorapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "env-cmd -f .env node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexander Potapov",
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "postcss": "^7.0.39",
+    "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "@pinata/sdk": "^1.1.26",
+    "env-cmd": "^10.1.0",
+    "ethers": "^5.6.9"
+  }
+}
