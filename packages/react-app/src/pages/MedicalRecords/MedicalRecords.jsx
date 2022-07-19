@@ -3,8 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEthers } from '@usedapp/core';
 import PageBase from '../PageBase/PageBase';
+import MedicalRecordsList from './components/MedicalRecordsList';
 // eslint-disable-next-line no-unused-vars
-import CardTest from './components/CardTest';
 
 import resultRegistryQueries from '../../domain/resultRegistryQueries';
 import medicalRecordRepository from '../../repository/medicalRecordRepository';
@@ -72,7 +72,7 @@ const MedicalRecords = () => {
             </div>
             <AddTestButtonLink />
           </div>
-          <CardTest testData={medicalRecordsList} />
+          <MedicalRecordsList testData={medicalRecordsList} />
         </div>
       )}
     </PageBase>

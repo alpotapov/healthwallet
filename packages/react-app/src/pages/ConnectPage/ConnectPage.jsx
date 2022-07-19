@@ -24,14 +24,14 @@ const ConnectPage = ({ disconnectReason }) => {
     initializing: null,
   };
   return (
-    <div className="h-screen bg-black">
+    <div className="h-screen bg-dark-gray">
       <div className="container mx-auto pt-24 space-y-24 flex flex-col items-center">
         <div className="flex flex-row justify-center">
           <img src={Logo} alt="Logo" />
         </div>
-        <div className="bg-white border rounded-lg w-96 h-96 flex flex-col justify-center items-center">
+        <div className="bg-white rounded-lg w-96 h-96 flex flex-col justify-center items-center">
           <img className="w-48" src={MetamaskIcon} alt="Metamask" />
-          <div className="text-3xl font-extralight uppercase mb-12">
+          <div className="text-3xl font-extra-light uppercase mb-12">
             Metamask
           </div>
           {connectionErrors[disconnectReason]}
