@@ -67,8 +67,8 @@ const Menu = ({ isOpen, onClose }) => {
               <img src={Shield} alt="FirstAid" />
             </div>
             <div>
-              <Link to="/guardians" className="text-xl">
-                Guardians
+              <Link to="/guardian" className="text-xl">
+                Guardian
               </Link>
             </div>
           </button>

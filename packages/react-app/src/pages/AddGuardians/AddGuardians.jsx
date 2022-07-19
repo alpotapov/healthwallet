@@ -7,7 +7,7 @@ import css from './components/style.module.css';
 
 const AddGuardians = () => {
   return (
-    <PageBase buttonBack backLink="/guardians">
+    <PageBase buttonBack backLink="/manage-guardians">
       <div className="relative z-10 flex items-center mt-5 -mb-10">
         <img src={Shield} alt="Shield" />
         <div className="flex flex-col text-3xl font-bold mb-10">

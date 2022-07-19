@@ -52,7 +52,7 @@ const Guardians = () => {
               </div>
             </div>
             <div className="flex items-center w-full bg-blueberry h-14 px-5 rounded-3xl mt-6 mb-5">
-              <Link to="/guardians/add-guardians" className="flex">
+              <Link to="/manage-guardians/add-guardians" className="flex">
                 <img src={Plus} alt="Plus" />
                 <div className="text-sm text-white font-bold ml-24">
                   Add Guardian
@@ -80,7 +80,7 @@ const Guardians = () => {
               </div>
             </div>
             <div className="flex items-center w-full bg-blueberry h-14 px-5 rounded-3xl mt-6 mb-5">
-              <Link to="/guardians/add-guardians" className="flex">
+              <Link to="/manage-guardians/add-guardians" className="flex">
                 <img src={Plus} alt="Plus" />
                 <div className="text-sm text-white font-bold ml-24">
                   Add Guardian

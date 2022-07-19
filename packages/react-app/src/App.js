@@ -5,9 +5,10 @@ import MedicalRecords from './pages/MedicalRecords/MedicalRecords';
 import ScanResult from './pages/ScanResult/ScanResult';
 import Guardians from './pages/Guardians/Guardians';
 import Preservation from './pages/Preservation/Preservation';
-import RestoreAccess from './pages/RestoreAccess/RestoreAccess';
 import AddGuardians from './pages/AddGuardians/AddGuardians';
 import ScanTest from './pages/ScanTest/ScanTest';
+import GuardiansService from './pages/GuardiansService/GuardiansService';
+import TransferToken from './pages/TransferToken/TransferToken';
 
 import './index.css';
 
@@ -15,20 +16,23 @@ export default function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/guardian/transfer-token">
+          <TransferToken />
+        </Route>
+        <Route path="/guardian">
+          <GuardiansService />
+        </Route>
         <Route path="/scan-test/result/:uid">
           <ScanResult />
         </Route>
         <Route path="/scan-test">
           <ScanTest />
         </Route>
-        <Route path="/guardians/add-guardians">
+        <Route path="/manage-guardians/add-guardians">
           <AddGuardians />
         </Route>
-        <Route path="/guardians">
+        <Route path="/manage-guardians">
           <Guardians />
-        </Route>
-        <Route path="/preservation/restore-access">
-          <RestoreAccess />
         </Route>
         <Route path="/preservation">
           <Preservation />
