@@ -64,7 +64,7 @@ const PageBase = ({ children, buttonBack, backLink, footer }) => {
       <div className="flex-grow flex flex-col min-h-full">{children}</div>
 
       {footer ? (
-        <div className="flex items-center justify-center py-2">
+        <div className="flex items-center justify-center py-4">
           <Link to="/">
             <img src={Logo} alt="logo" />
           </Link>

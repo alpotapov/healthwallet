@@ -6,7 +6,7 @@ contract ResultRegistry {
     mapping(string => string) uidToResultCid;
 
     function publishMeasurementCid(string memory _testUid, string memory _testResultCid) public {
-        require(bytes(uidToResultCid[_testUid]).length == 0);
+        require(bytes(uidToResultCid[_testUid]).length == 0, "ResultRegistry: Result already exists");
 
         uidToResultCid[_testUid] = _testResultCid;
     }

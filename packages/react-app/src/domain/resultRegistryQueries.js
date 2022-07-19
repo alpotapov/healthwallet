@@ -22,6 +22,7 @@ const toMedicalRecords = (uids, cids) => {
         typeTest: 'Ferritin',
         status: cids[index] === '' ? 'Pending' : 'Finished',
         uid: uids[index],
+        cid: cids[index],
       },
     };
   }, {});
