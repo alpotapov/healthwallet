@@ -74,7 +74,7 @@ const Authorized = ({ userInfo }) => {
               You have not assigned any Guardians
             </div>
             <div className="bg-raspberry h-8 text-white rounded-3xl font-bold flex items-center justify-center mt-4">
-              <Link to="/manage-guardians">Access Guardian</Link>
+              <Link to="/manage-guardians">Assign Guardian</Link>
             </div>
           </div>
         </div>

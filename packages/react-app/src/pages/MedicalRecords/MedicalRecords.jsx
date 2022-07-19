@@ -28,7 +28,6 @@ const MedicalRecords = () => {
     resultRegistryQueries.checkPendingResults(library);
   }, [library]);
 
-  // const forTestData = [];
   const AddTestButtonLink = () => (
     <Link
       to="/scan-test"
@@ -43,13 +42,13 @@ const MedicalRecords = () => {
   return (
     <PageBase footer>
       {medicalRecordsList.length === 0 ? (
-        <div className="w-full px-6">
+        <div className="w-full px-6 pb-32">
           <img
             src={MedicalRecImage}
             alt="MedicalRecImage"
             className="w-44 ml-auto pt-20"
           />
-          <div className="-mt-10 pb-32">
+          <div className="-mt-10">
             <div className="max-w-xs text-5xl font-bold">
               <span className="text-raspberry"> Your Medical </span> Records
             </div>
