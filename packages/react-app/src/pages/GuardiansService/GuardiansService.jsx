@@ -3,6 +3,7 @@ import PageBase from '../PageBase/PageBase';
 import GuardiansCard from './components/GuardiansCard';
 
 import Lock from './assets/Lock.png';
+import Empty from './assets/Empty.svg';
 
 const GuardiansService = () => {
   const forTestData = [
@@ -28,17 +29,18 @@ const GuardiansService = () => {
       {forTestData <= 0 ? (
         <div className="w-full">
           <div className="flex items-center -mb-8 mt-5 px-6">
-            <img src={Lock} alt="Shield" className="-ml-6" />
+            <img src={Lock} alt="Lock" className="-ml-6" />
             <div className="text-3xl font-bold text-raspberry">Guardian</div>
           </div>
-          <div className="bg-gray px-44 py-56 rounded-t-3xl text-sm font-bold text-dark-gray">
-            Empty
+          <div className="bg-gray px-36 py-48 rounded-t-3xl text-sm text-dark-gray">
+            <img src={Empty} alt="Empty" />
+            <div className="text-center mr-3">Empty</div>
           </div>
         </div>
       ) : (
         <div className="w-full">
           <div className="flex items-center -mb-8 mt-5 px-6">
-            <img src={Lock} alt="Shield" className="-ml-6" />
+            <img src={Lock} alt="Lock" className="-ml-6" />
             <div className="text-3xl font-bold text-raspberry">Guardian</div>
           </div>
           <GuardiansCard guardiansCard={forTestData} />

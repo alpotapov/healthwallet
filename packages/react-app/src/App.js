@@ -9,6 +9,7 @@ import AddGuardians from './pages/AddGuardians/AddGuardians';
 import ScanTest from './pages/ScanTest/ScanTest';
 import GuardiansService from './pages/GuardiansService/GuardiansService';
 import TransferToken from './pages/TransferToken/TransferToken';
+import Ecosystem from './pages/Ecosystem/Ecosystem';
 
 import './index.css';
 
@@ -16,6 +17,9 @@ export default function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/ecosystem">
+          <Ecosystem />
+        </Route>
         <Route path="/guardian/transfer-token">
           <TransferToken />
         </Route>

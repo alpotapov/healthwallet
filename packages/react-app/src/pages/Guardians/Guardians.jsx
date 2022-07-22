@@ -42,7 +42,7 @@ const Guardians = () => {
                 <div className="text-3xl font-bold text-lilac pb-8">
                   Guardians
                 </div>
-                <div className="text-sm font-medium">
+                <div className="text-sm font-medium text-lilac">
                   Here you can appoint your HealthWallet guardians. Those should
                   be the people you trust - your family members or close
                   friends. If you lose your device or your private key -
@@ -73,7 +73,7 @@ const Guardians = () => {
                 <div className="text-3xl font-bold text-lilac pb-8">
                   Guardians
                 </div>
-                <div className="text-sm font-medium">
+                <div className="text-sm font-medium text-lilac">
                   If you lose your device or your private key - guardians will
                   be able to restore access to your medical history.
                 </div>
