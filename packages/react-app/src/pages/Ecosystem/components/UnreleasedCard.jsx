@@ -15,6 +15,7 @@ const UnreleasedCard = ({ cardData }) => {
         return cardInform.status === 'unreleased' ? (
           <div
             className={`${css.card_shadow} bg-white rounded-3xl mb-12 py-6 px-14`}
+            key={cardInform.id}
           >
             <div className="flex items-center justify-center gap-2.5">
               <img src={DropGrey} alt="DropGrey" />

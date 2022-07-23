@@ -9,14 +9,19 @@ import Empty from './assets/Empty.svg';
 const Ecosystem = () => {
   const forTest = [
     {
+      id: 1,
       name: 'Ferritin',
-      status: 'passed',
+      // status: 'passed',
+      // status: 'analytics',
+      status: 'toDo',
     },
     {
+      id: 2,
       name: 'hemoglobin',
       status: 'unreleased',
     },
     {
+      id: 3,
       name: 'lymphocyte',
       status: 'unreleased',
     },

@@ -1,3 +1,30 @@
 .card_shadow {
     box-shadow: 4px 4px 33px rgba(0, 0, 0, 0.1), 4px 4px 21px rgba(134, 161, 186, 0.11);
 }
+
+.card_passed {
+    box-shadow: 4px 4px 33px rgba(0, 0, 0, 0.1), 4px 4px 21px rgba(134, 161, 186, 0.11);
+    background: white;
+    border-radius: 15px;
+    padding: 24px;
+    margin-bottom: 48px;
+}
+
+.card_analytics {
+    box-shadow: 4px 4px 33px rgba(0, 0, 0, 0.1), 4px 4px 21px rgba(134, 161, 186, 0.11);
+    background-color: #F7F7F7;
+    background-image: url("../assets/Clock.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    padding: 13px 24px;
+    margin-bottom: 48px;
+}
+
+.card_toDo {
+    box-shadow: 4px 4px 33px rgba(0, 0, 0, 0.1), 4px 4px 21px rgba(134, 161, 186, 0.11);
+    background-color: #78CEFF;
+    border-radius: 15px;
+    padding: 24px;
+    margin-bottom: 48px;
+}
