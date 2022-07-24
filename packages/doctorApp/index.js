@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 const ethers = require('ethers');
+const lighthouse = require('@lighthouse-web3/sdk');
 const ipfsService = require('./services/ipfsService');
 const TestResult = require('./916f9e6901fa.json');
 const artifacts = require('./contracts/hardhat_contracts.json');
 
 const privateKey = process.env.DOCTOR_PRIVATE_KEY;
+const lighthouseApiKey = process.env.LIGHTHOUSE_API_KEY;
 
 const rpcUrl = 'http://localhost:8545';
 const defaultNetworkId = 31337;
@@ -12,9 +14,10 @@ const defaultNetworkName = 'localhost';
 const { contracts } = artifacts[defaultNetworkId][defaultNetworkName];
 const { ResultRegistry } = contracts;
 
-const exportToIPFS = async (data) => {
-  const { IpfsHash } = await ipfsService.uploadJSON(data);
-  return IpfsHash;
+const uploadToLighthouse = async (data) => {
+  const response = await lighthouse.deploy(data, lighthouseApiKey);
+  console.log({ response });
+  return response.Hash;
 };
 
 const publishToResultRegistry = async (testUid, resultCid) => {
@@ -36,7 +39,11 @@ const publishToResultRegistry = async (testUid, resultCid) => {
 };
 
 // exportToIPFS(TestResult);
-publishToResultRegistry(
-  '12345abc',
-  'QmbDdYzQTXUsfeS4Z5saf2HXUitAnGxcgwjBZwDVyRWzjA'
-);
+
+const main = async () => {
+  const deviceOutput = './916f9e6901fa.json';
+  const cid = await uploadToLighthouse(deviceOutput);
+  await publishToResultRegistry('12345abc', cid);
+};
+
+main();
