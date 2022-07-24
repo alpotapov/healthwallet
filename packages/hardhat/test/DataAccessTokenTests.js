@@ -6,7 +6,9 @@ use(solidity);
 
 describe("Social Recovery with Data Access Token", async () => {
   let datContract;
-  const [deployer, account1] = await ethers.getSigners();
+  let dataAccessTokenFactory;
+  const [deployer, account1, account2, account3, account4] =
+    await ethers.getSigners();
 
   // quick fix to let gas reporter fetch data from gas station & coinmarketcap
   before((done) => {
@@ -15,11 +17,11 @@ describe("Social Recovery with Data Access Token", async () => {
 
   describe("Social recovery with DataAccessToken", async () => {
     it("Should deploy DataAccessToken", async () => {
-      const DataAccessToken = await ethers.getContractFactory(
+      dataAccessTokenFactory = await ethers.getContractFactory(
         "DataAccessToken"
       );
 
-      datContract = await DataAccessToken.deploy();
+      datContract = await dataAccessTokenFactory.deploy();
     });
 
     describe("Minting new DAT", () => {
@@ -36,6 +38,29 @@ describe("Social Recovery with Data Access Token", async () => {
         console.log({ guardians });
         const guardianAddresses = guardians.map((g) => g[0]);
         expect(guardianAddresses).to.contain(account1.address);
+      });
+
+      it("should allow guardians to transfer token to a new address", async () => {
+        const dat = await dataAccessTokenFactory.deploy();
+        await dat.mint();
+        await dat.assignGuardian(account1.address);
+        await dat.assignGuardian(account2.address);
+        await dat.assignGuardian(account3.address);
+
+        let currentOwner = await dat.ownerOf(1);
+        expect(currentOwner).to.be.equal(deployer.address);
+
+        await dat
+          .connect(account1)
+          .recoverTokenTo(deployer.address, account4.address);
+        currentOwner = await dat.ownerOf(1);
+        expect(currentOwner).to.be.equal(deployer.address);
+
+        await dat
+          .connect(account2)
+          .recoverTokenTo(deployer.address, account4.address);
+        currentOwner = await dat.ownerOf(1);
+        expect(currentOwner).to.be.equal(account4.address);
       });
 
       it("should preserve guardians between token transfers", () => {});
