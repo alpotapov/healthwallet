@@ -13,29 +13,38 @@ const Preservation = () => {
   // const forTestKey = [];
 
   return (
-    <PageBase buttonBack backLink="/">
-      {forTestKey.length === 0 ? (
-        <div className="mt-5">
-          <div className="flex items-center pl-3">
-            <img src={GreyKey} alt="GreyKey" className="-mb-16" />
-            <div className="flex flex-col text-3xl font-bold">
-              <span className="text-dark-gray">Data</span>Preservation
+    <div className="mockup-phone">
+      <div className="camera" />
+      <div className="display">
+        <div className="artboard artboard-demo phone-1">
+          <PageBase buttonBack backLink="/">
+            <div className="overflow-y-auto mb-16">
+              {forTestKey.length === 0 ? (
+                <div className="mt-5">
+                  <div className="flex items-center pl-3">
+                    <img src={GreyKey} alt="GreyKey" className="-mb-16" />
+                    <div className="flex flex-col text-2xl font-bold">
+                      <span className="text-dark-gray">Data</span>Preservation
+                    </div>
+                  </div>
+                  <NeedAuthorization />
+                </div>
+              ) : (
+                <div className="mt-5">
+                  <div className="flex items-center pl-3">
+                    <img src={GreenKey} alt="GreyKey" className="-mb-16" />
+                    <div className="flex flex-col text-2xl font-bold">
+                      <span className="text-lettuce">Data</span>Preservation
+                    </div>
+                  </div>
+                  <Authorized userInfo={forTestKey} />
+                </div>
+              )}
             </div>
-          </div>
-          <NeedAuthorization />
+          </PageBase>
         </div>
-      ) : (
-        <div className="mt-5">
-          <div className="flex items-center pl-3">
-            <img src={GreenKey} alt="GreyKey" className="-mb-16" />
-            <div className="flex flex-col text-3xl font-bold">
-              <span className="text-lettuce">Data</span>Preservation
-            </div>
-          </div>
-          <Authorized userInfo={forTestKey} />
-        </div>
-      )}
-    </PageBase>
+      </div>
+    </div>
   );
 };
 

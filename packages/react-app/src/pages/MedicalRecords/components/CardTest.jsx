@@ -15,7 +15,7 @@ const CardTest = ({ cardData }) => {
             {cardData.typeTest}
           </div>
         </div>
-        <div className="flex flex-col items-center mx-auto pt-5 pb-3.5">
+        <div className="flex flex-col items-center mx-auto pt-5 pb-3.5 pl-3">
           <div className="font-medium">{cardData.date}</div>
           <div
             className={`${

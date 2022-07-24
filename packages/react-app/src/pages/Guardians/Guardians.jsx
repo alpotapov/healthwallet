@@ -32,66 +32,82 @@ const Guardians = () => {
 
   // const forTestData = [];
   return (
-    <PageBase buttonBack backLink="/">
-      {forTestData <= 0 ? (
-        <div>
-          <div className="w-full px-6">
-            <div className="flex justify-between items-start pb-8 mt-5">
-              <img src={Shield} alt="Shield" className="-ml-6" />
-              <div>
-                <div className="text-3xl font-bold text-lilac pb-8">
-                  Guardians
+    <div className="mockup-phone">
+      <div className="camera" />
+      <div className="display">
+        <div className="artboard artboard-demo phone-1">
+          <PageBase buttonBack backLink="/">
+            <div className="overflow-y-auto mb-16">
+              {forTestData <= 0 ? (
+                <div>
+                  <div className="w-full px-6">
+                    <div className="flex justify-between items-start pb-8 mt-5">
+                      <img src={Shield} alt="Shield" className="-ml-6" />
+                      <div>
+                        <div className="text-3xl font-bold text-lilac pb-8">
+                          Guardians
+                        </div>
+                        <div className="text-sm font-medium text-lilac">
+                          Here you can appoint your HealthWallet guardians.
+                          Those be the people you trust - your family members or
+                          close friends. If you lose your device or your private
+                          key - guardians will be able to restore access to your
+                          medical history.
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center w-full bg-blueberry h-14 px-5 rounded-3xl mt-6 mb-5">
+                      <Link
+                        to="/manage-guardians/add-guardians"
+                        className="flex"
+                      >
+                        <img src={Plus} alt="Plus" />
+                        <div className="text-sm text-white font-bold ml-16">
+                          Add Guardian
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="bg-gray rounded-t-3xl py-48 px-40 text-sm font-medium text-silver-dark">
+                    Empty
+                  </div>
                 </div>
-                <div className="text-sm font-medium text-lilac">
-                  Here you can appoint your HealthWallet guardians. Those should
-                  be the people you trust - your family members or close
-                  friends. If you lose your device or your private key -
-                  guardians will be able to restore access to your medical
-                  history.
+              ) : (
+                <div>
+                  <div className="w-full px-6">
+                    <div className="flex justify-between items-start pb-8 mt-5">
+                      <img src={Shield} alt="Shield" className="-ml-6" />
+                      <div>
+                        <div className="text-3xl font-bold text-lilac pb-8">
+                          Guardians
+                        </div>
+                        <div className="text-sm font-medium text-lilac">
+                          If you lose your device or your private key -
+                          guardians be able to restore access to your medical
+                          history.
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center w-full bg-blueberry h-14 px-5 rounded-3xl mt-6 mb-5">
+                      <Link
+                        to="/manage-guardians/add-guardians"
+                        className="flex"
+                      >
+                        <img src={Plus} alt="Plus" />
+                        <div className="text-sm text-white font-bold ml-16">
+                          Add Guardian
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                  <GuardiansCard guardiansData={forTestData} />
                 </div>
-              </div>
+              )}
             </div>
-            <div className="flex items-center w-full bg-blueberry h-14 px-5 rounded-3xl mt-6 mb-5">
-              <Link to="/manage-guardians/add-guardians" className="flex">
-                <img src={Plus} alt="Plus" />
-                <div className="text-sm text-white font-bold ml-24">
-                  Add Guardian
-                </div>
-              </Link>
-            </div>
-          </div>
-          <div className="bg-gray rounded-t-3xl py-48 px-40 text-sm font-medium text-silver-dark">
-            Empty
-          </div>
+          </PageBase>
         </div>
-      ) : (
-        <div>
-          <div className="w-full px-6">
-            <div className="flex justify-between items-start pb-8 mt-5">
-              <img src={Shield} alt="Shield" className="-ml-6" />
-              <div>
-                <div className="text-3xl font-bold text-lilac pb-8">
-                  Guardians
-                </div>
-                <div className="text-sm font-medium text-lilac">
-                  If you lose your device or your private key - guardians will
-                  be able to restore access to your medical history.
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center w-full bg-blueberry h-14 px-5 rounded-3xl mt-6 mb-5">
-              <Link to="/manage-guardians/add-guardians" className="flex">
-                <img src={Plus} alt="Plus" />
-                <div className="text-sm text-white font-bold ml-24">
-                  Add Guardian
-                </div>
-              </Link>
-            </div>
-          </div>
-          <GuardiansCard guardiansData={forTestData} />
-        </div>
-      )}
-    </PageBase>
+      </div>
+    </div>
   );
 };
 

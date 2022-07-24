@@ -35,47 +35,58 @@ const MedicalRecords = () => {
     >
       <div className="flex grow">
         <img src={Plus} alt="Plus" />
-        <div className="text-sm text-white font-bold ml-28">Add test</div>
+        <div className="text-sm text-white font-bold ml-20">Add test</div>
       </div>
     </Link>
   );
   return (
-    <PageBase footer>
-      {medicalRecordsList.length === 0 ? (
-        <div className="w-full px-6 pb-32">
-          <img
-            src={MedicalRecImage}
-            alt="MedicalRecImage"
-            className="w-44 ml-auto pt-20"
-          />
-          <div className="-mt-10">
-            <div className="max-w-xs text-5xl font-bold">
-              <span className="text-raspberry"> Your Medical </span> Records
-            </div>
-          </div>
-          <AddTestButtonLink />
-        </div>
-      ) : (
-        <div className="flex flex-col justify-start flex-grow">
-          <div className="w-full px-6 py-6">
-            <div className="flex justify-between items-center mt-5">
-              <img
-                src={MedicalRecImage}
-                alt="MedicalRecImage"
-                className="w-32 h-40"
-              />
-              <div className="w-40">
-                <div className="max-w-xs text-4xl font-bold">
-                  <span className="text-raspberry"> Your Medical </span> Records
+    <div className="mockup-phone">
+      <div className="camera" />
+      <div className="display">
+        <div className="artboard artboard-demo phone-1">
+          <PageBase footer>
+            <div className="overflow-y-auto mb-16">
+              {medicalRecordsList.length === 0 ? (
+                <div className="w-full px-6 pb-32">
+                  <img
+                    src={MedicalRecImage}
+                    alt="MedicalRecImage"
+                    className="w-44 ml-auto pt-20"
+                  />
+                  <div className="-mt-10">
+                    <div className="max-w-xs text-5xl font-bold">
+                      <span className="text-raspberry"> Your Medical </span>{' '}
+                      Records
+                    </div>
+                  </div>
+                  <AddTestButtonLink />
                 </div>
-              </div>
+              ) : (
+                <div className="flex flex-col justify-start flex-grow">
+                  <div className="w-full px-6 py-6">
+                    <div className="flex justify-between items-center mt-5">
+                      <img
+                        src={MedicalRecImage}
+                        alt="MedicalRecImage"
+                        className="w-32 h-40"
+                      />
+                      <div className="w-40">
+                        <div className="max-w-xs text-4xl font-bold">
+                          <span className="text-raspberry"> Your Medical </span>{' '}
+                          Records
+                        </div>
+                      </div>
+                    </div>
+                    <AddTestButtonLink />
+                  </div>
+                  <MedicalRecordsList testData={medicalRecordsList} />
+                </div>
+              )}
             </div>
-            <AddTestButtonLink />
-          </div>
-          <MedicalRecordsList testData={medicalRecordsList} />
+          </PageBase>
         </div>
-      )}
-    </PageBase>
+      </div>
+    </div>
   );
 };
 
