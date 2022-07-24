@@ -14,7 +14,7 @@ const TransferToken = () => {
       <div className="bg-gray px-6 py-36 rounded-t-3xl">
         <div className="bg-white rounded-3xl py-11 px-5">
           <input
-            className="w-full border border-dark-gray bg-white rounded-xl p-3.5 mb-6 text-dark-gray"
+            className="w-full border border-dark-gray bg-white rounded-xl p-3.5 mb-6"
             placeholder="New friend address"
           />
           <button

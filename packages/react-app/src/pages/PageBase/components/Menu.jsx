@@ -10,6 +10,7 @@ import Close from '../assets/Close.svg';
 import FirstAid from '../assets/First-aid.svg';
 import Key from '../assets/Key.svg';
 import Shield from '../assets/Shield.svg';
+import Ecosystem from '../assets/Ecosystem.svg';
 
 const Menu = ({ isOpen, onClose }) => {
   return (
@@ -35,7 +36,7 @@ const Menu = ({ isOpen, onClose }) => {
             className="flex items-center pb-16"
             onClick={onClose}
           >
-            <div className="pr-6">
+            <div className="w-11 pr-6">
               <img src={FirstAid} alt="FirstAid" />
             </div>
             <div>
@@ -49,8 +50,8 @@ const Menu = ({ isOpen, onClose }) => {
             className="flex items-center pb-16"
             onClick={onClose}
           >
-            <div className="pr-6">
-              <img src={Key} alt="FirstAid" />
+            <div className="w-11 pr-6">
+              <img src={Key} alt="Key" />
             </div>
             <div>
               <Link to="/preservation" className="text-xl">
@@ -63,12 +64,26 @@ const Menu = ({ isOpen, onClose }) => {
             className="flex items-center pb-16"
             onClick={onClose}
           >
-            <div className="pr-6">
-              <img src={Shield} alt="FirstAid" />
+            <div className="w-11 pr-6">
+              <img src={Shield} alt="Shield" />
             </div>
             <div>
               <Link to="/guardian" className="text-xl">
                 Guardian
+              </Link>
+            </div>
+          </button>
+          <button
+            type="button"
+            className="flex items-center pb-16"
+            onClick={onClose}
+          >
+            <div className="pr-2.5 -ml-2">
+              <img src={Ecosystem} alt="Ecosystem" />
+            </div>
+            <div>
+              <Link to="/ecosystem" className="text-xl">
+                Ecosystem
               </Link>
             </div>
           </button>

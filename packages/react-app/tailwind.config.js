@@ -16,6 +16,7 @@ module.exports = {
         raspberry: '#EC2A58',
         blueberry: '#9BB0E9',
         lilac: '#91A8E5',
+        celestial: '#78CEFF',
         'lilac-dark': '#5B6C97',
         'lilac-blond': '#C5D5FF',
         'cornflower-blue': {
