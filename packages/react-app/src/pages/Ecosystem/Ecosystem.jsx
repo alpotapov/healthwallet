@@ -30,41 +30,34 @@ const Ecosystem = () => {
   // const forTest = [];
 
   return (
-    <div className="mockup-phone">
-      <div className="camera" />
-      <div className="display">
-        <div className="artboard artboard-demo phone-1">
-          <PageBase buttonBack backLink="/">
-            <div className="w-full overflow-y-auto mb-16">
-              <div className="flex items-start mt-5 px-6 pb-2">
-                <img src={Heard} alt="Heard" />
-                <div>
-                  <div className="text-3xl font-bold text-celestial pb-5">
-                    Ecosystem
-                  </div>
-                  <div className="text-sm text-celestial">
-                    HealthWallet ecosystem includes researchers, startups and
-                    professionals capable of analysing your data and providing
-                    actionable insights.
-                  </div>
-                </div>
-              </div>
-              {forTest.length <= 0 ? (
-                <div className="bg-gray px-36 py-48 rounded-t-3xl text-sm text-dark-gray">
-                  <img src={Empty} alt="Empty" />
-                  <div className="text-center mr-2">Empty</div>
-                </div>
-              ) : (
-                <div className="bg-gray rounded-t-3xl py-8 px-12">
-                  <PassedCard cardData={forTest} />
-                  <UnreleasedCard cardData={forTest} />
-                </div>
-              )}
+    <PageBase buttonBack backLink="/">
+      <div className="w-full overflow-y-auto mb-16">
+        <div className="flex items-start mt-5 px-6 pb-2">
+          <img src={Heard} alt="Heard" />
+          <div>
+            <div className="text-3xl font-bold text-celestial pb-5">
+              Ecosystem
             </div>
-          </PageBase>
+            <div className="text-sm text-celestial">
+              HealthWallet ecosystem includes researchers, startups and
+              professionals capable of analysing your data and providing
+              actionable insights.
+            </div>
+          </div>
         </div>
+        {forTest.length <= 0 ? (
+          <div className="bg-gray px-36 py-48 rounded-t-3xl text-sm text-dark-gray">
+            <img src={Empty} alt="Empty" />
+            <div className="text-center mr-2">Empty</div>
+          </div>
+        ) : (
+          <div className="bg-gray rounded-t-3xl py-8 px-12">
+            <PassedCard cardData={forTest} />
+            <UnreleasedCard cardData={forTest} />
+          </div>
+        )}
       </div>
-    </div>
+    </PageBase>
   );
 };
 

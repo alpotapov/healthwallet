@@ -11,28 +11,19 @@ const ScanTest = () => {
   if (scannedUid && scannedUid !== '')
     return <Redirect to={`/scan-test/result/${scannedUid}`} />;
   return (
-    <div className="mockup-phone">
-      <div className="camera" />
-      <div className="display">
-        <div className="artboard artboard-demo phone-1">
-          <PageBase buttonBack backLink="/add-test">
-            <div className="overflow-y-auto mb-16">
-              <div className="relative z-10 flex pt-6 -mb-16">
-                <img className="w-52" src={AddImage} alt="addImage" />
-                <div className="font-bold text-3xl w-28 mt-8">
-                  <span className="text-lilac">Add</span> Test
-                </div>
-              </div>
-              <div className="px-5">
-                <BarcodeScanner
-                  onScanCompleted={(result) => setScannedUid(result)}
-                />
-              </div>
-            </div>
-          </PageBase>
+    <PageBase buttonBack backLink="/add-test">
+      <div className="overflow-y-auto mb-16">
+        <div className="relative z-10 flex pt-6 -mb-16">
+          <img className="w-52" src={AddImage} alt="addImage" />
+          <div className="font-bold text-3xl w-28 mt-8">
+            <span className="text-lilac">Add</span> Test
+          </div>
+        </div>
+        <div className="px-5">
+          <BarcodeScanner onScanCompleted={(result) => setScannedUid(result)} />
         </div>
       </div>
-    </div>
+    </PageBase>
   );
 };
 
