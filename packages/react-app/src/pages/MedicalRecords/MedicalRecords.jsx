@@ -14,6 +14,7 @@ import Plus from './assets/Plus.svg';
 
 const MedicalRecords = () => {
   const { library } = useEthers();
+  const [fetching, setFetching] = React.useState(false);
   const uids = medicalRecordRepository.useStore((state) => state.uids);
   const medicalRecords = medicalRecordRepository.useStore(
     (state) => state.medicalRecords
@@ -25,8 +26,20 @@ const MedicalRecords = () => {
 
   React.useEffect(() => {
     if (!library) return;
-    resultRegistryQueries.checkPendingResults(library);
-  }, [library]);
+    if (!fetching) {
+      setTimeout(() => {
+        console.log('fetching');
+        setFetching(true);
+        resultRegistryQueries
+          .checkPendingResults(library)
+          .then(() => console.log('done fetching') || setFetching(false));
+      }, 3000);
+    }
+  }, [library, fetching]);
+
+  React.useEffect(() => {
+    console.log({ medicalRecords });
+  }, [medicalRecords]);
 
   const AddTestButtonLink = () => (
     <Link

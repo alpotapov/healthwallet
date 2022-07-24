@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CardTestProcessed from './CardTestProcessed';
+import CardTestPending from './CardTestPending';
 import CardTest from './CardTest';
 
 const MedicalRecordsList = ({ testData }) => {
@@ -9,8 +9,8 @@ const MedicalRecordsList = ({ testData }) => {
   return (
     <div className="bg-gray px-6 py-6 flex-grow">
       {testData.map((paramTest) => {
-        return paramTest.status === 'Pending' ? (
-          <CardTestProcessed cardData={paramTest} key={paramTest.uid} />
+        return paramTest.status !== 'Finished' ? (
+          <CardTestPending cardData={paramTest} key={paramTest.uid} />
         ) : (
           <CardTest cardData={paramTest} key={paramTest.uid} />
         );
