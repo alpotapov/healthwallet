@@ -9,7 +9,7 @@ const MedicalRecordsList = ({ testData }) => {
   return (
     <div className="bg-gray px-6 py-6 flex-grow">
       {testData.map((paramTest) => {
-        return paramTest.status === 'Pending' ? (
+        return paramTest.status !== 'Finished' ? (
           <CardTestPending cardData={paramTest} key={paramTest.uid} />
         ) : (
           <CardTest cardData={paramTest} key={paramTest.uid} />
