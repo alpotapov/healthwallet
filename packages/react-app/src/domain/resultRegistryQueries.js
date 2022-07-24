@@ -13,35 +13,65 @@ const getRegistryRecords = async (uids, provider) => {
   return records;
 };
 
-const toMedicalRecords = (uids, cids) => {
-  return uids.reduce((acc, uid, index) => {
-    return {
-      ...acc,
-      [uid]: {
-        date: '29.10.2022',
-        typeTest: 'Ferritin',
-        status: cids[index] === '' ? 'Pending' : 'Finished',
-        uid: uids[index],
-        cid: cids[index],
-      },
-    };
-  }, {});
+const toMedicalRecord = (uid, testResult) => {
+  return {
+    [uid]: {
+      ...testResult,
+      status: 'Finished',
+    },
+  };
+};
+
+const cacheLocally = async (testResult) => {
+  console.log({ caching: testResult });
+  const { medicalRecords } = medicalRecordRepository.useStore.getState();
+  const updatedRecords = {
+    ...medicalRecords,
+    ...toMedicalRecord(testResult.uid, testResult),
+  };
+  medicalRecordRepository.useStore.setState({ medicalRecords: updatedRecords });
+};
+
+const savePlaceholder = (uid) => {
+  const { medicalRecords } = medicalRecordRepository.useStore.getState();
+  const updatedRecords = {
+    ...medicalRecords,
+    [uid]: {
+      uid,
+      status: 'Pending',
+      date: Date.now(),
+    },
+  };
+  medicalRecordRepository.useStore.setState({ medicalRecords: updatedRecords });
 };
 
 const checkPendingResults = async (provider) => {
   const { medicalRecords, uids } = medicalRecordRepository.useStore.getState();
-  const uidsToQuery = uids.filter(
-    (uid) =>
-      !(uid in medicalRecords) || medicalRecords[uid].status !== 'Finished'
-  );
+
+  uids
+    .filter((uid) => !(uid in medicalRecords))
+    .forEach((uid) => {
+      savePlaceholder(uid);
+    });
+
+  const uidsToQuery = uids
+    .filter((uid) => uid in medicalRecords)
+    .filter((uid) => medicalRecords[uid].status !== 'Finished');
   if (uidsToQuery.length === 0) return;
 
-  const records = await getRegistryRecords(uidsToQuery, provider);
-  const updatedRecords = {
-    ...medicalRecords,
-    ...toMedicalRecords(uidsToQuery, records),
-  };
-  medicalRecordRepository.useStore.setState({ medicalRecords: updatedRecords });
+  console.log({ uidsToQuery });
+  const records = (await getRegistryRecords(uidsToQuery, provider)).filter(
+    (record) => record !== ''
+  );
+  console.log({ records });
+  const resultJson = await Promise.all(
+    records.map((cid) =>
+      fetch(`http://ipfs.io/ipfs/${cid}`)
+        .then((response) => response.json())
+        .then((testResult) => cacheLocally(testResult))
+    )
+  );
+  console.log({ resultJson });
 };
 
 export default {
