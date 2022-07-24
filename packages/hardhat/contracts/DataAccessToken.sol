@@ -24,6 +24,8 @@ contract DataAccessToken is ERC721 {
         bool transferCompleted;
     }
 
+    event GuardianAssigned(address indexed guardian, address indexed tokenOwner);
+
     mapping(uint256 => Guardian[]) public guardiansOfToken;
     mapping(uint256 => ExternalTransfer[]) public externalTransfersOfToken;
 
@@ -46,6 +48,8 @@ contract DataAccessToken is ERC721 {
 
         Guardian memory newGuardian = Guardian(_newGuardian, true);
         guardiansOfToken[tokenOf[msg.sender]].push(newGuardian);
+
+        emit GuardianAssigned(_newGuardian, msg.sender);
     }
 
     function getMyGuardians()
@@ -67,7 +71,7 @@ contract DataAccessToken is ERC721 {
         return false;
     }
 
-    function getOrCreateExternalTransfer(address _old, address _new) public returns (uint256) {
+    function getOrCreateExternalTransfer(address _old, address _new) internal returns (uint256) {
         uint256 tokenId = tokenOf[_old];
         uint256 numTransfers = externalTransfersOfToken[tokenId].length;
         for (uint256 i = 0; i < numTransfers; i++) {
@@ -97,6 +101,7 @@ contract DataAccessToken is ERC721 {
         }
     }
 
+    // wrapper around transferFrom so that there is no need to known token id
     function recoverTokenTo(address _old, address _new) external {
         transferFrom(_old, _new, tokenOf[_old]);
     }
