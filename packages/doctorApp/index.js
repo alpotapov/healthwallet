@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
+const fs = require('fs');
 const ethers = require('ethers');
 const lighthouse = require('@lighthouse-web3/sdk');
 const ipfsService = require('./services/ipfsService');
-const TestResult = require('./916f9e6901fa.json');
 const artifacts = require('./contracts/hardhat_contracts.json');
 
 const privateKey = process.env.DOCTOR_PRIVATE_KEY;
@@ -40,10 +40,19 @@ const publishToResultRegistry = async (testUid, resultCid) => {
 
 // exportToIPFS(TestResult);
 
-const main = async () => {
-  const deviceOutput = './916f9e6901fa.json';
-  const cid = await uploadToLighthouse(deviceOutput);
-  await publishToResultRegistry('12345abc', cid);
+const main = async (uid, measurement) => {
+  console.log({ uid, measurement });
+  const deviceOutput = {
+    testType: 'Ferritin',
+    date: '24.07.2022',
+    uid,
+    measurement,
+  };
+  const filePath = `./tmp/${uid}.json`;
+  await fs.promises.writeFile(filePath, JSON.stringify(deviceOutput));
+  const cid = await uploadToLighthouse(filePath);
+  await publishToResultRegistry(uid, cid);
 };
 
-main();
+console.log({ argv: process.argv });
+main(process.argv[2], process.argv[3]);
