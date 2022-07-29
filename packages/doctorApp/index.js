@@ -44,7 +44,7 @@ const main = async (uid, measurement) => {
   console.log({ uid, measurement });
   const deviceOutput = {
     testType: 'Ferritin',
-    date: '24.07.2022',
+    date: '25.07.2022',
     uid,
     measurement,
   };

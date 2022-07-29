@@ -48,7 +48,7 @@ const ScanResult = () => {
               <div className="w-32 text-center text-lilac-dark text-sm font-medium">
                 Test UID:
               </div>
-              <div className="text-xl font-medium text-white">21345278saf</div>
+              <div className="text-xl font-medium text-white">{uid}</div>
             </div>
           </div>
           <div className="pb-12">
