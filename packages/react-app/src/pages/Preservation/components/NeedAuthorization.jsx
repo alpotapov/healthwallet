@@ -17,7 +17,7 @@ const NeedAuthorization = () => {
         >
           <img src={KeyRed} alt="KeyRed" />
         </div>
-        <div className="text-sm">
+        <div className="text-xs">
           <div className="text-dark-gray font-medium pb-3">
             You have no access token
           </div>
@@ -56,7 +56,7 @@ const NeedAuthorization = () => {
         >
           <img src={CloudRed} alt="CloudRed" />
         </div>
-        <div className="text-sm text-dark-gray font-medium w-3/5">
+        <div className="text-xs text-dark-gray font-medium w-3/5">
           You data is stored locally. There is on backup!
         </div>
       </div>
@@ -66,7 +66,7 @@ const NeedAuthorization = () => {
         >
           <img src={ShieldRed} alt="ShieldRed" />
         </div>
-        <div className="text-sm text-dark-gray font-medium w-3/5">
+        <div className="text-xs text-dark-gray font-medium w-3/5">
           You have to generate Data Access Token before assigning Guardians.
         </div>
       </div>

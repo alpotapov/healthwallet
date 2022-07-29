@@ -26,26 +26,28 @@ const GuardiansService = () => {
 
   return (
     <PageBase buttonBack backLink="/">
-      {forTestData <= 0 ? (
-        <div className="w-full">
-          <div className="flex items-center -mb-8 mt-5 px-6">
-            <img src={Lock} alt="Lock" className="-ml-6" />
-            <div className="text-3xl font-bold text-raspberry">Guardian</div>
+      <div className="overflow-y-auto mb-16">
+        {forTestData <= 0 ? (
+          <div className="w-full">
+            <div className="flex items-center -mb-8 mt-5 px-6">
+              <img src={Lock} alt="Lock" className="-ml-6" />
+              <div className="text-3xl font-bold text-raspberry">Guardian</div>
+            </div>
+            <div className="bg-gray px-36 py-48 rounded-t-3xl text-sm text-dark-gray">
+              <img src={Empty} alt="Empty" />
+              <div className="text-center mr-3">Empty</div>
+            </div>
           </div>
-          <div className="bg-gray px-36 py-48 rounded-t-3xl text-sm text-dark-gray">
-            <img src={Empty} alt="Empty" />
-            <div className="text-center mr-3">Empty</div>
+        ) : (
+          <div className="w-full">
+            <div className="flex items-center -mb-8 mt-5 px-6">
+              <img src={Lock} alt="Lock" className="-ml-6" />
+              <div className="text-3xl font-bold text-raspberry">Guardian</div>
+            </div>
+            <GuardiansCard guardiansCard={forTestData} />
           </div>
-        </div>
-      ) : (
-        <div className="w-full">
-          <div className="flex items-center -mb-8 mt-5 px-6">
-            <img src={Lock} alt="Lock" className="-ml-6" />
-            <div className="text-3xl font-bold text-raspberry">Guardian</div>
-          </div>
-          <GuardiansCard guardiansCard={forTestData} />
-        </div>
-      )}
+        )}
+      </div>
     </PageBase>
   );
 };

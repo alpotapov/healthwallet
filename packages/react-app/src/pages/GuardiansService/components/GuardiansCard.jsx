@@ -10,7 +10,7 @@ import Arrows from '../assets/Arrows.svg';
 
 const GuardiansCard = ({ guardiansCard }) => {
   return (
-    <div className="bg-gray px-6 pt-20 rounded-t-3xl">
+    <div className="bg-gray px-6 pt-20 pb-10 rounded-t-3xl">
       {guardiansCard.map((guardData) => {
         return (
           <div className="flex gap-8 mb-16" key={guardData.id}>

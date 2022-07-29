@@ -16,7 +16,7 @@ const Authorized = ({ userInfo }) => {
         >
           <img src={KeyGreen} alt="KeyRed" />
         </div>
-        <div className="text-sm w-3/5">
+        <div className="text-xs w-3/5">
           <div className="text-dark-gray font-medium pb-3">
             Data Access token is tied to your account
           </div>
@@ -39,7 +39,7 @@ const Authorized = ({ userInfo }) => {
         >
           <img src={CloudGreen} alt="CloudRed" />
         </div>
-        <div className="text-sm text-dark-gray font-medium w-3/5">
+        <div className="text-xs text-dark-gray font-medium w-3/5">
           Data backup is encrypted and stored in IPFS
         </div>
       </div>
@@ -50,7 +50,7 @@ const Authorized = ({ userInfo }) => {
           >
             <img src={ShieldGreen} alt="ShieldRed" />
           </div>
-          <div className="w-3/5 text-sm">
+          <div className="w-3/5 text-xs">
             <div className="flex flex-col text-dark-gray font-medium">
               <span className="text-lettuce">
                 {userInfo[0].guardians} Guardians
@@ -69,7 +69,7 @@ const Authorized = ({ userInfo }) => {
           >
             <img src={ShieldRed} alt="ShieldRed" />
           </div>
-          <div className="w-3/5 text-sm">
+          <div className="w-3/5 text-xs">
             <div className="flex flex-col text-dark-gray font-medium">
               You have not assigned any Guardians
             </div>

@@ -5,7 +5,7 @@ import Copy from '../assets/Copy.svg';
 
 const RestoreAccess = () => {
   return (
-    <div className={`${css.card_shadow_inward} py-10 px-10`}>
+    <div className={`${css.card_shadow_inward} py-10 px-20`}>
       <div className="flex items-center justify-between gap-6 pb-8">
         <img src={Restore} alt="Restore" />
         <div className="text-dark-gray font-medium text-sm">
@@ -22,7 +22,7 @@ const RestoreAccess = () => {
         onClick={() => {}}
       >
         <img src={Copy} alt="Copy" />
-        <div className="ml-24">Copy address</div>
+        <div className="ml-16">Copy address</div>
       </button>
     </div>
   );

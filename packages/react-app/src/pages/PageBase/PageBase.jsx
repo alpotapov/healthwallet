@@ -21,57 +21,64 @@ const PageBase = ({ children, buttonBack, backLink, footer }) => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row md:justify-between items-center mt-6">
-          <Menu
-            onClose={() => {
-              setMenuModalOpen(false);
-            }}
-            isOpen={menuModalOpen}
-          />
-          {buttonBack ? (
-            <div className="w-full flex justify-between px-6">
-              <div>
-                <Link to={backLink}>
-                  <img src={Back} alt="buttonBack" />
+    <div className="mockup-phone">
+      <div className="camera" />
+      <div className="display">
+        <div className="artboard artboard-demo phone-1">
+          <div className="flex min-h-full flex-col">
+            <div className="container mx-auto">
+              <div className="flex flex-col md:flex-row md:justify-between items-center mt-6">
+                <Menu
+                  onClose={() => {
+                    setMenuModalOpen(false);
+                  }}
+                  isOpen={menuModalOpen}
+                />
+                {buttonBack ? (
+                  <div className="w-full flex justify-between px-6">
+                    <div>
+                      <Link to={backLink}>
+                        <img src={Back} alt="buttonBack" />
+                      </Link>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMenuModalOpen(true);
+                      }}
+                    >
+                      <img src={MenuIcon} alt="Menu" />
+                    </button>
+                  </div>
+                ) : (
+                  <div className="w-full flex justify-end px-6">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMenuModalOpen(true);
+                      }}
+                    >
+                      <img src={MenuIcon} alt="Menu" />
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="flex-grow flex flex-col min-h-full">{children}</div>
+
+            {footer ? (
+              <div className="flex items-center justify-center py-4">
+                <Link to="/">
+                  <img src={Logo} alt="logo" />
                 </Link>
               </div>
-              <button
-                type="button"
-                onClick={() => {
-                  setMenuModalOpen(true);
-                }}
-              >
-                <img src={MenuIcon} alt="Menu" />
-              </button>
-            </div>
-          ) : (
-            <div className="w-full flex justify-end px-6">
-              <button
-                type="button"
-                onClick={() => {
-                  setMenuModalOpen(true);
-                }}
-              >
-                <img src={MenuIcon} alt="Menu" />
-              </button>
-            </div>
-          )}
+            ) : (
+              ''
+            )}
+          </div>
         </div>
       </div>
-
-      <div className="flex-grow flex flex-col min-h-full">{children}</div>
-
-      {footer ? (
-        <div className="flex items-center justify-center py-4">
-          <Link to="/">
-            <img src={Logo} alt="logo" />
-          </Link>
-        </div>
-      ) : (
-        ''
-      )}
     </div>
   );
 };

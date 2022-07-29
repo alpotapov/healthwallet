@@ -31,7 +31,7 @@ const Ecosystem = () => {
 
   return (
     <PageBase buttonBack backLink="/">
-      <div className="w-full">
+      <div className="w-full overflow-y-auto mb-16">
         <div className="flex items-start mt-5 px-6 pb-2">
           <img src={Heard} alt="Heard" />
           <div>
@@ -39,7 +39,7 @@ const Ecosystem = () => {
               Ecosystem
             </div>
             <div className="text-sm text-celestial">
-              HealthWallet ecosystem includes researchers, startups and medical
+              HealthWallet ecosystem includes researchers, startups and
               professionals capable of analysing your data and providing
               actionable insights.
             </div>

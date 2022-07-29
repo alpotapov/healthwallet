@@ -14,27 +14,29 @@ const Preservation = () => {
 
   return (
     <PageBase buttonBack backLink="/">
-      {forTestKey.length === 0 ? (
-        <div className="mt-5">
-          <div className="flex items-center pl-3">
-            <img src={GreyKey} alt="GreyKey" className="-mb-16" />
-            <div className="flex flex-col text-3xl font-bold">
-              <span className="text-dark-gray">Data</span>Preservation
+      <div className="overflow-y-auto mb-16">
+        {forTestKey.length === 0 ? (
+          <div className="mt-5">
+            <div className="flex items-center pl-3">
+              <img src={GreyKey} alt="GreyKey" className="-mb-16" />
+              <div className="flex flex-col text-2xl font-bold">
+                <span className="text-dark-gray">Data</span>Preservation
+              </div>
             </div>
+            <NeedAuthorization />
           </div>
-          <NeedAuthorization />
-        </div>
-      ) : (
-        <div className="mt-5">
-          <div className="flex items-center pl-3">
-            <img src={GreenKey} alt="GreyKey" className="-mb-16" />
-            <div className="flex flex-col text-3xl font-bold">
-              <span className="text-lettuce">Data</span>Preservation
+        ) : (
+          <div className="mt-5">
+            <div className="flex items-center pl-3">
+              <img src={GreenKey} alt="GreyKey" className="-mb-16" />
+              <div className="flex flex-col text-2xl font-bold">
+                <span className="text-lettuce">Data</span>Preservation
+              </div>
             </div>
+            <Authorized userInfo={forTestKey} />
           </div>
-          <Authorized userInfo={forTestKey} />
-        </div>
-      )}
+        )}
+      </div>
     </PageBase>
   );
 };
